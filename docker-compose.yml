@@ -1,0 +1,16 @@
+name: cromalink-api-proxy
+
+services:
+  nginx:
+    build: .
+    networks:
+      - cromalink
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - /media/tinsis/Windows/Users/tinsis/Develop/acrolix/cromolink/cromalink-frontend-update/src:/var/www/html
+
+networks:
+  cromalink:
+    external: true
